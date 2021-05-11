@@ -6,25 +6,37 @@ namespace Codeat3\BladeEvilIcons;
 
 use BladeUI\Icons\Factory;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Container\Container;
 
 final class BladeEvilIconsServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->callAfterResolving(Factory::class, function (Factory $factory) {
-            $factory->add('evil-icons', [
-                'path' => __DIR__.'/../resources/svg',
-                'prefix' => 'ei',
-            ]);
+        $this->registerConfig();
+
+        $this->callAfterResolving(Factory::class, function (Factory $factory, Container $container) {
+            $config = $container->make('config')->get('blade-evil-icons', []);
+
+            $factory->add('evil-icons', array_merge(['path' => __DIR__.'/../resources/svg'], $config));
         });
+
+    }
+
+    private function registerConfig(): void
+    {
+        $this->mergeConfigFrom(__DIR__.'/../config/blade-evil-icons.php', 'blade-evil-icons');
     }
 
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../resources/svg' => public_path('vendor/blade-ei'),
-            ], 'blade-ei');
+                __DIR__.'/../resources/svg' => public_path('vendor/blade-evil-icons'),
+            ], 'blade-evil-icons');
+
+            $this->publishes([
+                __DIR__.'/../config/blade-evil-icons.php' => $this->app->configPath('blade-evil-icons.php'),
+            ], 'blade-evil-icons-config');
         }
     }
 }
