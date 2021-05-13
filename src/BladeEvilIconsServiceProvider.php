@@ -32,7 +32,7 @@ final class BladeEvilIconsServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../resources/svg' => public_path('vendor/blade-evil-icons'),
-            ], 'blade-evil-icons');
+            ], 'blade-ei'); // TODO: change this alias to `blade-evil-icons` in the next major release
 
             $this->publishes([
                 __DIR__.'/../config/blade-evil-icons.php' => $this->app->configPath('blade-evil-icons.php'),
