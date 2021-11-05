@@ -2,6 +2,8 @@
 
 This changelog follows [the Keep a Changelog standard](https://keepachangelog.com).
 
+## [Unreleased](https://github.com/codeat3/blade-evil-icons/compare/1.1.1...main)
+
 ## 1.1.1 (2021-05-13)
 typo fix for the alias for publishing the icons
 
