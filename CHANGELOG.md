@@ -2,7 +2,16 @@
 
 This changelog follows [the Keep a Changelog standard](https://keepachangelog.com).
 
-## [Unreleased](https://github.com/codeat3/blade-evil-icons/compare/1.4.1...HEAD)
+## [Unreleased](https://github.com/codeat3/blade-evil-icons/compare/1.4.2...HEAD)
+
+## [1.4.2](https://github.com/codeat3/blade-evil-icons/compare/1.4.1...1.4.2) - 2023-03-10
+
+### What's Changed
+
+- upgrade github action to php82 by @swapnilsarwe in https://github.com/codeat3/blade-evil-icons/pull/6
+- icon updates with correct fill attributes by @swapnilsarwe in https://github.com/codeat3/blade-evil-icons/pull/7
+
+**Full Changelog**: https://github.com/codeat3/blade-evil-icons/compare/1.4.1...1.4.2
 
 ## [1.4.1](https://github.com/codeat3/blade-evil-icons/compare/1.3.1...1.4.1) - 2023-02-18
 
