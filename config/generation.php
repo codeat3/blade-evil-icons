@@ -10,6 +10,12 @@ $svgNormalization = static function (string $tempFilepath, array $iconSet) {
         $iconProcessor = new IconProcessor($tempFilepath, $iconSet);
         $iconProcessor
             ->optimize()
+            ->postOptimizationAsString(function ($svgLine) {
+                return str_replace([
+                    'fill="#231F20"',
+                    'fill="#181616"',
+                ], 'fill="currentColor"', $svgLine);
+            })
             ->save(filenameCallable: function ($filename){
                 return str_replace('ei-', '', $filename);
             });
